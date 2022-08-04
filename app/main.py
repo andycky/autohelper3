@@ -92,7 +92,7 @@ def main():
     chrome=get_chrome_connection()
     chrome.get("https://web.whatsapp.com/")
     time.sleep(4)
-    chrome.save_screenshot('../static/whatsapp.png')
+    chrome.save_screenshot('/static/whatsapp.png')
 
     return "succes"
 
