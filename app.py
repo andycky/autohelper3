@@ -1,4 +1,5 @@
 import configparser
+import os
 from urllib.parse import unquote
 
 from flask import Flask
@@ -238,5 +239,6 @@ def send_wa_msg(msg):
     wa_send_btn.click()
 
 
-#if __name__ == '__main__':
-#    app.run('0.0.0.0', 5000, debug=True)
+if __name__ == '__main__':
+  port = int(os.environ.get('PORT', 5000))
+  app.run(host = '0.0.0.0', port = port)
