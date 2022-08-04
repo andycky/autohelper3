@@ -13,7 +13,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 #app = Flask(__name__)
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../templates', static_folder='../static')
 global case
 global config
 global chrome
