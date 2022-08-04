@@ -2,7 +2,7 @@ import configparser
 import os
 from urllib.parse import unquote
 
-from flask import Flask
+from flask import Flask, render_template
 
 from selenium import webdriver
 from selenium.webdriver import Keys, ActionChains
@@ -67,7 +67,11 @@ def get_chrome_connection():
 #@app.route('/')
 #def home():
 #    return "Hello"
-
+@app.route('/qr')
+def start():
+    person_to_show = 'tim'
+    full_filename = os.path.join('static', 'maid.jpg')
+    return render_template('index.html',user_image=full_filename)
 
 @app.route('/login')
 def main():
