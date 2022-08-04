@@ -70,7 +70,7 @@ def get_chrome_connection():
 @app.route('/qr')
 def start():
     person_to_show = 'tim'
-    full_filename = os.path.join('static', 'maid.jpg')
+    full_filename = os.path.join('../static', 'maid.jpg')
     return render_template('index.html',user_image=full_filename)
 
 @app.route('/login')
