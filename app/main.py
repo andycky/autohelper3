@@ -78,7 +78,7 @@ def get_chrome_connection():
 @app.route('/qr')
 def start():
     person_to_show = 'tim'
-    full_filename = os.path.join('static', 'maid.jpg')
+    full_filename = os.path.join('static', 'whatsapp.png')
     return render_template('index.html',user_image=full_filename)
 
 @app.route('/login')
@@ -91,6 +91,8 @@ def main():
 
     chrome=get_chrome_connection()
     chrome.get("https://web.whatsapp.com/")
+    time.sleep(4)
+    chrome.save_screenshot('../static/whatsapp.png')
 
     return "succes"
 
