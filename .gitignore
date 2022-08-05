@@ -2,3 +2,4 @@ __pycache__/
 /venv/
 /backup/chromedriver.exe
 /backup/
+/app/main2.py

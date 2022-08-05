@@ -29,34 +29,24 @@ def get_chrome():
     config = configparser.ConfigParser()
     config.read('config/config.properties')
 
-    #user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36'
+    user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36'
 
-    #options = Options()
-
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("--disable-setuid-sandbox")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--single-process")
-    chrome = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
-
+    #PROXY = "103.160.204.104:80"
+    options = Options()
     #options.add_argument("--disable-notifications")
     #options.add_argument('--headless')
     #options.add_argument("--window-size=1920,1080")
     #options.add_argument(r"user-data-dir=" + "/home/seluser/wpp")
+    #options.add_argument('--proxy-server=%s' % PROXY)
+    options.add_argument('--ignore-ssl-errors=yes')
+    options.add_argument('--ignore-certificate-errors')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('user-agent={0}'.format(user_agent))
     #options.add_argument("user-agent=User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36")
 
-    #options.add_argument('--ignore-ssl-errors=yes')
-    #options.add_argument('--ignore-certificate-errors')
-    #options.add_argument('--no-sandbox')
-    #options.add_argument('--disable-dev-shm-usage')
-    #options.add_argument('user-agent={0}'.format(user_agent))
-
-
-    #chrome = webdriver.Remote(command_executor='http://'+config["settings"]["selenium_host"]+'/wd/hub', options=options)
-    #chrome.maximize_window()
+    chrome = webdriver.Remote(command_executor='http://'+config["settings"]["selenium_host"]+'/wd/hub', options=options)
+    chrome.maximize_window()
     #Chrome('./chromedriver_linux', chrome_options=options)
 
 #    chrome.get("https://web.whatsapp.com/")
