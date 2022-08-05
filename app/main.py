@@ -96,7 +96,7 @@ def login_hp():
     #chrome.save_screenshot('whatsapp.png')
     #time.sleep(32)
     #os.unlink('wdocker hatsapp.png')
-    #chrome=get_chrome_connection()
+    chrome=get_chrome_connection()
     chrome.get("https://www.helperplace.com/")
     time.sleep(4)
     #chrome.save_screenshot('whatsapp.png')
