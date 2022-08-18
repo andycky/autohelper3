@@ -45,7 +45,7 @@ def get_chrome():
     options.add_argument('user-agent={0}'.format(user_agent))
     #options.add_argument("user-agent=User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36")
 
-    chrome = webdriver.Remote(command_executor='http://20.205.106.141:4445/wd/hub', options=options)
+    chrome = webdriver.Remote(command_executor='http://20.205.106.141:4444/wd/hub', options=options)
     chrome.maximize_window()
     #Chrome('./chromedriver_linux', chrome_options=options)
 
@@ -58,7 +58,7 @@ def get_chrome_connection():
     global chrome
 
     try:
-        chrome.get("https://www.baidu.com/")
+        chrome.get("https://www.bing.com/")
     except:
         chrome=get_chrome()
 
