@@ -88,9 +88,10 @@ def main():
 
     return "succes"
 
+@app.route("/send/<location>/<position>/<name>/<id>")
 
-@app.route('/login_hp')
-def login_hp():
+@app.route('/login_hp/<username>/<password>')
+def login_hp(username,password):
     global chrome
     #time.sleep(3)
     #chrome.save_screenshot('whatsapp.png')
@@ -107,10 +108,10 @@ def login_hp():
     time.sleep(2)
 
     email = chrome.find_element(By.XPATH, '//*[@id="pills-home"]/div/div[1]/input')
-    email.send_keys("patrickkwanpccw@gmail.com")
+    email.send_keys(username)
 
     password = chrome.find_element(By.XPATH, '//*[@id="pills-home"]/div/div[2]/input')
-    password.send_keys("patrick@pccw")
+    password.send_keys(password)
 
     button = chrome.find_element(By.XPATH, '//*[@id="pills-home"]/div/div[5]/button')
     button.click()
