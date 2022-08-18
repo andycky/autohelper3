@@ -88,8 +88,6 @@ def main():
 
     return "succes"
 
-@app.route("/send/<location>/<position>/<name>/<id>")
-
 @app.route('/login_hp/<username>/<password>')
 def login_hp(username,password):
     global chrome
@@ -110,8 +108,8 @@ def login_hp(username,password):
     email = chrome.find_element(By.XPATH, '//*[@id="pills-home"]/div/div[1]/input')
     email.send_keys(username)
 
-    password = chrome.find_element(By.XPATH, '//*[@id="pills-home"]/div/div[2]/input')
-    password.send_keys(password)
+    passwd = chrome.find_element(By.XPATH, '//*[@id="pills-home"]/div/div[2]/input')
+    passwd.send_keys(password)
 
     button = chrome.find_element(By.XPATH, '//*[@id="pills-home"]/div/div[5]/button')
     button.click()
